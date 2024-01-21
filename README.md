@@ -13,6 +13,8 @@ Most Significant Gain in Profits: Pinpoints the period with the highest profit a
 Most Significant Drop in Profits: Identifies the period with the greatest loss alteration and the corresponding amount.
 Operation Guidelines
 
+# Usage
+
 Ensure the CSV file ("budget_data.csv") is situated in the 'Resources' folder.
 Execute the script ("financial_analysis.py") to generate the financial analysis results.
 Results will be showcased in the command line and archived in the 'assessment' folder as "cashflow_analysis.txt."
@@ -29,6 +31,8 @@ Overall Votes Tally: Computes the total count of votes cast in the election.
 Single Candidate Results: Calculates the percentage of votes and total votes for each candidate.
 Election Victor: Determines the candidate with the highest number of votes.
 Instructions for Use
+
+# Usage
 
 Ensure the CSV file ("election_data.csv") is located in the 'Resources' directory.
 Execute the script ("financial_analysis.py") to acquire detailed electoral analysis outcomes.
