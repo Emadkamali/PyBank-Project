@@ -2,7 +2,7 @@
 
 # Introduction
 
-This Python script delves into the financial intricacies of a dataset stored in the "money_data.csv" file. The script computes crucial financial indicators and displays results both in the command line and a document labelled "cashflow_analysis.txt."
+This Python script delves into the financial intricacies of a dataset stored in the "budget_data.csv" file. The script computes crucial financial indicators and displays results both in the command line and a document labelled "financial_analysis.txt."
 
 # Derived Metrics
 
@@ -17,13 +17,13 @@ Operation Guidelines
 
 Ensure the CSV file ("budget_data.csv") is situated in the 'Resources' folder.
 Execute the script ("financial_analysis.py") to generate the financial analysis results.
-Results will be showcased in the command line and archived in the 'assessment' folder as "cashflow_analysis.txt."
+Results will be showcased in the command line and archived in the 'assessment' folder as "financial.analysis.txt."
 
 # Financial Analysis - PayRoll
 
 # Introduction
 
-This Python script evaluates ballot data from the "ballot_info.csv" file, delivering in-depth insights into the electoral outcomes. The analysis encompasses total votes, individual candidate outcomes, and the determination of the triumphant candidate.
+This Python script evaluates ballot data from the "election_data.csv" file, delivering in-depth insights into the electoral outcomes. The analysis encompasses total votes, individual candidate outcomes, and the determination of the triumphant candidate.
 
 # Key Metrics
 
@@ -35,9 +35,9 @@ Instructions for Use
 # Usage
 
 Ensure the CSV file ("election_data.csv") is located in the 'Resources' directory.
-Execute the script ("financial_analysis.py") to acquire detailed electoral analysis outcomes.
+Execute the script ("election_analysis.py") to acquire detailed electoral analysis outcomes.
 
 # Results Presentation
 
 Outcomes are promptly displayed in the command line for immediate viewing.
-A comprehensive summary is also documented in a text file ("fiancial_analysis.txt") within the 'assessment' directory for future consultation.
+A comprehensive summary is also documented in a text file ("election_analysis.txt") within the 'assessment' directory for future consultation.
