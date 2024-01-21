@@ -1,55 +1,78 @@
 import os
 import csv
 
-# Function to perform financial analysis
-def financial_analysis(csv_file):
-    # Initialize lists to store data
-    months = []
-    amounts = []
 
-    # Read CSV file and extract data
-    with open(csv_file, 'r', newline='') as csvfile:
-        csvreader = csv.reader(csvfile, delimiter=',')
-        next(csvreader)  # Skip header row
+# Provide the file path for the CSV
+budget_csv = os.path.join("Resources", "budget_data.csv")
 
-        for row in csvreader:
-            months.append(row[0])
-            amounts.append(int(row[1]))
+# Checking the 'analysis' folder if it doesn't exist
+analysis_folder = os.path.join("analysis")
 
-    # Calculate financial metrics
-    total_months = len(months)
-    total_amount = sum(amounts)
-    average_change = round(total_amount / total_months, 2)
+# Open CSVfile
+with open(budget_csv) as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=",")
 
-    max_increase = max(amounts)
-    max_decrease = min(amounts)
+    # Skip header
+    next(csvreader)
 
-    max_inc_month = months[amounts.index(max_increase)]
-    max_dec_month = months[amounts.index(max_decrease)]
+    # Declare variables to store values
+    total_month = 0
+    total_amount = 0
+    last_PnL = 0
+    changes = []
+    greatest_increase = {"date": "", "amount": float("-inf")}
+    greatest_decrease = {"date": "", "amount": float("inf")}
 
-    # Display the report
+    for row in csvreader:
+            
+        # Find out the total number of months and the overall profit or loss
+        date = row[0]
+        profit_loss = int(row[1])
+
+        # Finad out the total number of months and the overall  profit or loss
+        total_month += 1
+        total_amount += profit_loss
+
+        # Determine all of changes
+        change = profit_loss - last_PnL
+
+        # find out change in profit,loss and store
+        if total_month > 1:
+            changes.append(change)
+
+        # Update greatest increase and decrease
+        if change > greatest_increase["amount"]:
+            greatest_increase["date"] = date
+            greatest_increase["amount"] = change
+
+        if change < greatest_decrease["amount"]:
+            greatest_decrease["date"] = date
+            greatest_decrease["amount"] = change
+
+        # Update last profit and loss
+        last_PnL = profit_loss
+
+        # Calculate average
+    average_change = sum(changes) / len(changes)
+
+    # Print result to terminal
     print("Financial Analysis")
-    print("---------------------------------------------------")
-    print(f"Total Months: {total_months}")
-    print(f"Total: ${total_amount}")
-    print(f"Average Change: ${average_change}")
-    print(f"Greatest Increase in Profits: {max_inc_month} (${max_increase})")
-    print(f"Greatest Decrease in Profits: {max_dec_month} (${max_decrease})")
+    print("--------------------------------")
+    print(f"Total Months: {total_month}")
+    print(f"Net Total: ${total_amount}")
+    print(f"Average Change: ${average_change:.2f}")
+    print(f"Greatest Increase in Profits: {greatest_increase['date']} (${greatest_increase['amount']})")
+    print(f"Greatest Decrease in Profits: {greatest_decrease['date']} (${greatest_decrease['amount']})")
 
-    # Save the report to file
-    with open('FinancialAnalysis.txt', 'w') as result_file:
-        result_file.write("Financial Analysis\n")
-        result_file.write("---------------------------------------------------\n")
-        result_file.write(f"Total Months: {total_months}\n")
-        result_file.write(f"Total: ${total_amount}\n")
-        result_file.write(f"Average Change: ${average_change}\n")
-        result_file.write(f"Greatest Increase in Profits: {max_inc_month} (${max_increase})\n")
-        result_file.write(f"Greatest Decrease in Profits: {max_dec_month} (${max_decrease})")
-
-# Define the path to the CSV file
-csv_path = os.path.join('Resources','budget_data.csv')
-
-# Perform financial analysis
-financial_analysis(csv_path)
+    # Export result to a text file in the 'analysis' folder
+    output_path = os.path.join("analysis_folder", "financial_analysis.txt")
+    with open(output_path, "w") as output_file:
+        output_file.write("Financial Analysis\n")
+        output_file.write("--------------------------------\n")
+        output_file.write(f"Total Months: {total_month}\n")
+        output_file.write(f"Net Total: ${total_amount}\n")
+        output_file.write(f"Average Change: ${average_change:.2f}\n")
+        output_file.write(f"Greatest Increase in Profits: {greatest_increase['date']} (${greatest_increase['amount']})\n")
+        output_file.write(f"Greatest Decrease in Profits: {greatest_decrease['date']} (${greatest_decrease['amount']})\n")
 
 
