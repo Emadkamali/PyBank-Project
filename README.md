@@ -23,9 +23,8 @@ Results will be showcased in the command line and archived in the 'assessment' f
 
 # Introduction
 
-This Python script evaluates ballot data from the "election_data.csv" file, delivering in-depth insights int![revenue-per-lead](https://git![Vote_counting](https://github.com/Emadkamali/Python-Challenge/assets/129677932/1152503c-4480-405a-ae4f-626eb4bda21b)
-hub.com/Emadkamali/Python-Challenge/assets/129677932/2fd155ef-4782-420f-9641-141853bc47fe)
-o the electoral outcomes. The analysis encompasses total votes, individual candidate outcomes, and the determination of the triumphant candidate.
+This Python script evaluates ballot data from the "election_data.csv" file, delivering in-depth insights into the electoral outcomes. The analysis encompasses total votes, individual candidate outcomes, and the determination of the triumphant candidate.
+
 
 # Key Metrics
 
